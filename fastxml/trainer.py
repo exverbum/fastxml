@@ -409,7 +409,7 @@ class Trainer(object):
                 # Check
                 _procs = []
                 for p in procs:
-                    if p.ready():
+                    if p.ready() or (not p.p.is_alive()):
                         finished.append(p.get())
                     else:
                         _procs.append(p)
